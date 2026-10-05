@@ -1,0 +1,30 @@
+# Secrets
+.env
+secrets/google/credentials.json
+secrets/google/tokens/
+secrets/google/token.json
+myenva/
+# Python
+__pycache__/
+*.pyc
+.myenva/
+myenva/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Local storage / scratch
+storage/uploads/
+/tmp/aura_voice_out/
+/tmp/aura_photos/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log

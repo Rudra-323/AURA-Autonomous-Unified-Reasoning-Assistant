@@ -1,0 +1,72 @@
+# --- Config / validation (kept first on purpose: if a later package's wheel
+# build fails, pip aborts the whole install — these core pieces should never
+# be the ones left uninstalled because something further down broke) ---
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+python-dotenv>=1.0.1
+email-validator>=2.2.0
+
+# --- Core agent stack ---
+langchain>=1.0.0
+langgraph>=1.0.0
+langgraph-checkpoint-postgres>=2.0.24
+langchain-openai>=0.3.0
+langchain-mcp-adapters>=0.1.0
+
+# --- API layer ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+sse-starlette>=2.1.0
+python-multipart>=0.0.12
+
+# --- Auth ---
+python-jose[cryptography]>=3.3.0
+bcrypt>=4.0.0
+
+# --- Database (async) ---
+psycopg[binary,pool]>=3.2.0
+psycopg-pool>=3.2.0
+pgvector>=0.3.6
+
+# --- Background jobs ---
+redis>=5.1.0
+rq>=2.0.0
+
+# --- RAG / embeddings / document parsing ---
+sentence-transformers>=3.2.0
+pypdf>=5.1.0
+python-docx>=1.1.2
+openpyxl>=3.1.5
+rank-bm25>=0.2.2
+
+# --- Voice: English/Hindi ---
+# edge-tts (not Coqui TTS): pure Python, no C++ compiler needed. Coqui TTS
+# requires building a Cython extension and fails on a stock Windows machine
+# without Visual C++ Build Tools — not worth that install for this project.
+faster-whisper>=1.0.3
+edge-tts>=6.1.0
+
+# --- Voice: Odia only (AI4Bharat IndicConformer/Indic-TTS) ---
+# Heavy (~2-3GB with model weights) and only needed once you actually wire
+# up Odia. Comment these two out if you're testing English/Hindi first —
+# nothing else in requirements.txt depends on them.
+torch>=2.4.0
+transformers>=4.45.0
+
+# --- Tools ---
+requests>=2.32.0
+httpx>=0.27.0
+google-api-python-client>=2.150.0
+google-auth-httplib2>=0.2.0
+google-auth-oauthlib>=1.2.0
+
+# --- UI ---
+streamlit>=1.40.0
+
+# --- Observability ---
+langsmith>=0.1.140
+
+# --- Testing ---
+pytest>=8.3.0
+pytest-asyncio>=0.24.0
+pytest-mock>=3.14.0
